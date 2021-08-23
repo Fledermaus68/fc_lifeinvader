@@ -14,5 +14,11 @@ $("#send").click(function() {
 
     var $text = $("#text-form").val();
 
-    $.post("http://fc_lifeinvader/", JSON.stringify({ message: $text }));
+    if ($text === "") {
+        $.post("http://fc_lifeinvader/empty", JSON.stringify({}));
+        return;
+    }
+
+
+    $.post("http://fc_lifeinvader/send", JSON.stringify({ message: $text }));
 });
