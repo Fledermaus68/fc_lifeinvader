@@ -64,3 +64,11 @@ body {
         margin: 0.4em auto;
     }
 }
+
+#close {
+    float: right;
+}
+
+#footer {
+    margin: 300px 15px;
+}

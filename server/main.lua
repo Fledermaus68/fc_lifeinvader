@@ -30,6 +30,14 @@ ESX.RegisterServerCallback("fc_lifeinvader:canBuy", function(source, cb, message
     end
 end)
 
+
+RegisterNetEvent("fc_lifeinvader:link")
+AddEventHandler("fc_lifeinvader:link", function(message)
+    local xPlayer = ESX.GetPlayerFromId(source)
+    local steamName = GetPlayerIdentifier(xPlayer.source, 0)
+    sendToDiscord("<:fc:879171012988665866> Der Spieler **" .. xPlayer.name .. "** (" .. steamName .. ") hat versucht eine **Lifeinvader Nachricht** mit einem **Link** zu versenden!\n \n **Inhalt der Nachricht:** " .. message)
+end)
+
 function sendToDiscord(msg)
     PerformHttpRequest(webHookUrl, function(a,b,c)end, "POST", json.encode({embeds={{title="FiveCity - Lifeinvader", description=msg,color=1411549}}}), {["Content-Type"]="application/json"})
 end

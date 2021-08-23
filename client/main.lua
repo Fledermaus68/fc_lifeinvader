@@ -27,6 +27,11 @@ RegisterNUICallback("close", function()
     toggleUI(false)
 end)
 
+RegisterNUICallback("link", function(data, cb)
+    ESX.ShowNotification("~r~Dieser Text darf keine Links enthalten!")
+    TriggerServerEvent("fc_lifeinvader:link", data.message)
+end)
+
 RegisterNUICallback("empty", function()
     ESX.ShowNotification("Deine ~r~Nachricht ~w~darf nicht ~r~leer ~w~sein!")
 end)
